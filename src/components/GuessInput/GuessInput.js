@@ -1,12 +1,12 @@
 import React from "react";
 
-function GuessInput({ setGuesses }) {
+function GuessInput({ handleGuessSubmission, disabled }) {
 	const [guess, setGuess] = React.useState("");
 
 	function handleSubmit(event) {
 		event.preventDefault();
 
-		setGuesses((previousGuesses) => [...previousGuesses, guess]);
+		handleGuessSubmission(guess);
 		setGuess("");
 	}
 
@@ -21,6 +21,7 @@ function GuessInput({ setGuesses }) {
 				minLength={5}
 				maxLength={5}
 				title="Five letters only, please."
+				disabled={disabled}
 				value={guess}
 				onChange={(event) => setGuess(event.target.value.toUpperCase())}
 			/>
