@@ -18,6 +18,8 @@ function GuessInput({ setGuesses }) {
 				type="text"
 				required
 				pattern="[A-Za-z]{5}"
+				minLength={5}
+				maxLength={5}
 				title="Five letters only, please."
 				value={guess}
 				onChange={(event) => setGuess(event.target.value.toUpperCase())}
